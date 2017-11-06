@@ -1,0 +1,2 @@
+# The address of the Docker registry that Kubernetes pulls images from.
+docker_registry: gcr.io/devel-concent-golem-network
