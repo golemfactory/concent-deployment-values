@@ -1,2 +1,10 @@
 # The address of the Docker registry that Kubernetes pulls images from.
 docker_registry: gcr.io/devel-concent-golem-network
+
+# These addresses are the only values allowed in the HTTP Host header.
+# All requests with a different value will be rejected by Django.
+# NOTE: The Host header is specified by the client and might not even match our
+# own IP or domain. That's exactly why this whitelist exists.
+allowed_hosts:
+  - "{{ external_ip }}"
+  - devel.concent.golem.network
