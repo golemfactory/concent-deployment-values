@@ -12,3 +12,17 @@ external_ip: 35.198.90.123
 allowed_hosts:
   - "{{ external_ip }}"
   - devel.concent.golem.network
+
+# These people receive e-mail notifications about every HTTP 5xx error caused by an
+# uncaught exception in the Django code.
+admins:
+  - name: cameel
+    mail: kamil.sliwak@codepoets.it
+  - name: bartek
+    mail: bartosz.betka@codepoets.it
+  - name: jakub
+    mail: jakub.czachura@codepoets.it
+  - name: karol
+    mail: karol.beker@codepoets.it
+  - name: michal
+    mail: michal.janik@codepoets.it
