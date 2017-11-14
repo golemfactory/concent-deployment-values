@@ -26,3 +26,8 @@ admins:
     mail: karol.beker@codepoets.it
   - name: michal
     mail: michal.janik@codepoets.it
+
+# Connection parameters of our PostgreSQL server
+database_name: concent
+database_user: concent_user
+database_host: 35.198.142.52
