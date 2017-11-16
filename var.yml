@@ -1,6 +1,10 @@
 # The address of the Docker registry that Kubernetes pulls images from.
 docker_registry: gcr.io/devel-concent-golem-network
 
+# External IP that can be used as the entry point to the cluster.
+# Will be assigned to the nginx-proxy service.
+external_ip: 35.198.90.123
+
 # These addresses are the only values allowed in the HTTP Host header.
 # All requests with a different value will be rejected by Django.
 # NOTE: The Host header is specified by the client and might not even match our
