@@ -31,3 +31,11 @@ admins:
 database_name: concent
 database_user: concent_user
 database_host: 35.198.142.52
+
+email:
+  host:               smtp.sendgrid.net
+  port:               2525
+  user:               apikey
+  use_tls:            true
+  default_from_email: no-reply@devel.concent.golem.network
+  server_email:       no-reply@devel.concent.golem.network
