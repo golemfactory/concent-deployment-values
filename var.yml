@@ -47,3 +47,6 @@ gke:
   project:              devel-concent-golem-network
   cluster:              concent-dev
   zone:                 europe-west3-a
+
+# Name of the persistent disk to be attached to nginx-storage
+persistent_disk_name: concent-storage
