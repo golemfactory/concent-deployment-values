@@ -22,6 +22,7 @@ gke:
   zone:                 europe-west3-a
 
 nginx_storage_disk: concent-storage
+max_upload_size:    300m
 
 versions:
   concent:                   dev

@@ -50,6 +50,9 @@ email:
 # Name of the persistent disk to be attached to nginx-storage
 #nginx_storage_disk: concent-storage
 
+# Maximum size of individual files that can be uploaded to nginx-storage
+#max_upload_size:    300m
+
 # Version of each repository to be deployed.
 # You can use braches, tags or commit IDs here.
 versions:
