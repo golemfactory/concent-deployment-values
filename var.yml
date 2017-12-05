@@ -1,6 +1,8 @@
 # The address of the Docker registry that Kubernetes pulls images from.
 docker_registry: gcr.io/devel-concent-golem-network
 
+image_prefix: concent-
+
 # External IP that can be used as the entry point to the cluster.
 # Will be assigned to the nginx-proxy service.
 external_ip: 35.198.90.123
