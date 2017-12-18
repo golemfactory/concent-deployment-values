@@ -47,3 +47,9 @@ gke:
   project:              devel-concent-golem-network
   cluster:              concent-dev
   zone:                 europe-west3-a
+
+# Concent specific variables
+fetures:
+  admin:      admin-panel
+  core:       concent-api
+  gatekeeper: gatekeeper
