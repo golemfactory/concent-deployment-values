@@ -49,4 +49,4 @@ gke:
   zone:                 europe-west3-a
 
 # Name of the persistent disk to be attached to nginx-storage
-persistent_disk_name: concent-storage
+nginx_storage_disk: concent-storage
