@@ -49,3 +49,10 @@ email:
 
 # Name of the persistent disk to be attached to nginx-storage
 #nginx_storage_disk: concent-storage
+
+# Version of each repository to be deployed.
+# You can use braches, tags or commit IDs here.
+versions:
+  concent:                   master
+  concent-deployment:        master
+  concent-deployment-values: master

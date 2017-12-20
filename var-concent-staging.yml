@@ -22,3 +22,8 @@ gke:
   zone:                 europe-west3-a
 
 nginx_storage_disk: concent-staging-storage
+
+versions:
+  concent:                   staging
+  concent-deployment:        staging
+  concent-deployment-values: staging
