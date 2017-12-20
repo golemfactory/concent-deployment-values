@@ -1,0 +1,24 @@
+external_ip: 35.198.90.123
+
+allowed_hosts:
+  - "{{ external_ip }}"
+  - devel.concent.golem.network
+
+database_name: concent_dev
+database_user: concent_dev_user
+
+email:
+  host:               smtp.sendgrid.net
+  port:               2525
+  user:               apikey
+  use_tls:            true
+  default_from_email: no-reply@devel.concent.golem.network
+  server_email:       no-reply@devel.concent.golem.network
+
+gke:
+  service_account_name: concent-builder-service
+  project:              devel-concent-golem-network
+  cluster:              concent-dev
+  zone:                 europe-west3-a
+
+nginx_storage_disk: concent-storage

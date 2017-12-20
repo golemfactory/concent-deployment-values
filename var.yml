@@ -5,7 +5,7 @@ image_prefix: concent-
 
 # External IP that can be used as the entry point to the cluster.
 # Will be assigned to the nginx-proxy service.
-external_ip: 35.198.90.123
+#external_ip: a.b.c.d
 
 # These addresses are the only values allowed in the HTTP Host header.
 # All requests with a different value will be rejected by Django.
@@ -13,7 +13,6 @@ external_ip: 35.198.90.123
 # own IP or domain. That's exactly why this whitelist exists.
 allowed_hosts:
   - "{{ external_ip }}"
-  - devel.concent.golem.network
 
 # These people receive e-mail notifications about every HTTP 5xx error caused by an
 # uncaught exception in the Django code.
@@ -30,8 +29,8 @@ admins:
     mail: michal.janik@codepoets.it
 
 # Connection parameters of our PostgreSQL server
-database_name: concent
-database_user: concent_user
+#database_name: concent
+#database_user: concent_user
 database_host: 35.198.142.52
 
 email:
@@ -39,14 +38,14 @@ email:
   port:               2525
   user:               apikey
   use_tls:            true
-  default_from_email: no-reply@devel.concent.golem.network
-  server_email:       no-reply@devel.concent.golem.network
+  default_from_email: no-reply@concent.golem.network
+  server_email:       no-reply@concent.golem.network
 
-gke:
-  service_account_name: concent-builder-service
-  project:              devel-concent-golem-network
-  cluster:              concent-dev
-  zone:                 europe-west3-a
+#gke:
+#  service_account_name: concent-builder-service
+#  project:              devel-concent-golem-network
+#  cluster:              concent
+#  zone:                 europe-west3-a
 
 # Name of the persistent disk to be attached to nginx-storage
-nginx_storage_disk: concent-storage
+#nginx_storage_disk: concent-storage
