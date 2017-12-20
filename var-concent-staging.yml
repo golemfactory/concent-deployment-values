@@ -1,0 +1,29 @@
+external_ip: 35.198.165.137
+
+allowed_hosts:
+  - "{{ external_ip }}"
+  - staging.concent.golem.network
+
+database_name: concent_staging
+database_user: concent_staging_user
+
+email:
+  host:               smtp.sendgrid.net
+  port:               2525
+  user:               apikey
+  use_tls:            true
+  default_from_email: no-reply@staging.concent.golem.network
+  server_email:       no-reply@staging.concent.golem.network
+
+gke:
+  service_account_name: concent-builder-service
+  project:              devel-concent-golem-network
+  cluster:              concent-staging
+  zone:                 europe-west3-a
+
+nginx_storage_disk: concent-staging-storage
+
+versions:
+  concent:                   staging
+  concent-deployment:        staging
+  concent-deployment-values: staging
