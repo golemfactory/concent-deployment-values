@@ -1,8 +1,10 @@
-external_ip: 35.198.165.137
+external_ip:             35.198.165.137
+cluster_address:         staging.concent.golem.network
+storage_cluster_address: "{{ cluster_address }}"
 
 allowed_hosts:
   - "{{ external_ip }}"
-  - staging.concent.golem.network
+  - "{{ cluster_address }}"
 
 database_name: concent_staging
 database_user: concent_staging_user
