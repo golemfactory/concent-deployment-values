@@ -17,16 +17,8 @@ allowed_hosts:
 # These people receive e-mail notifications about every HTTP 5xx error caused by an
 # uncaught exception in the Django code.
 admins:
-  - name: cameel
-    mail: kamil.sliwak@codepoets.it
-  - name: bartek
-    mail: bartosz.betka@codepoets.it
-  - name: jakub
-    mail: jakub.czachura@codepoets.it
-  - name: karol
-    mail: karol.beker@codepoets.it
-  - name: michal
-    mail: michal.janik@codepoets.it
+  - name: concent-reports
+    mail: concent-reports@codepoets.it
 
 # Connection parameters of our PostgreSQL server
 #database_name: concent
