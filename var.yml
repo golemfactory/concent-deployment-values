@@ -45,6 +45,7 @@ email:
   host:               smtp.sendgrid.net
   port:               2525
   user:               apikey
+  subject:            default
   use_tls:            true
   default_from_email: no-reply@concent.golem.network
   server_email:       no-reply@concent.golem.network
