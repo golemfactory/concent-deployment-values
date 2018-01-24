@@ -26,6 +26,9 @@ gke:
 nginx_storage_disk: concent-storage
 max_upload_size:    300m
 
+ethereum_receiver_account_address: "0xcdace9008d72025b86d72793f24b5fe4951fcab1"
+ammount_of_ether: 1
+
 versions:
   concent:                   dev
   concent-deployment:        dev
