@@ -27,6 +27,10 @@ nginx_storage_disk: concent-storage
 geth_disk:          ethereum-storage
 max_upload_size:    300m
 
+limit_time_of_connection: 35s
+limit_time_of_download: 15s
+limit_time_of_upload: 30s
+
 versions:
   concent:                   dev
   concent-deployment:        dev

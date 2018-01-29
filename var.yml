@@ -64,6 +64,15 @@ email:
 # Maximum size of individual files that can be uploaded to nginx-storage
 #max_upload_size:    300m
 
+# Time limit for keep connection.
+#limit_time_of_connection: 35s
+
+# Time limit for download file.
+#limit_time_of_download: 15s
+
+# Time limit for upload file
+#limit_time_of_upload: 30s
+
 # Version of each repository to be deployed.
 # You can use braches, tags or commit IDs here.
 versions:
