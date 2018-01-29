@@ -1,6 +1,6 @@
 external_ip:             35.198.165.137
 cluster_address:         staging.concent.golem.network
-storage_cluster_address: "{{ cluster_address }}"
+storage_cluster_address: "{{ external_ip }}"
 
 allowed_hosts:
   - "{{ external_ip }}"
