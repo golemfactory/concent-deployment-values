@@ -27,6 +27,9 @@ nginx_storage_disk: concent-storage
 geth_disk:          ethereum-storage
 max_upload_size:    300m
 
+nginx_proxy_ssl:   true
+nginx_storage_ssl: false
+
 versions:
   concent:                   dev
   concent-deployment:        dev

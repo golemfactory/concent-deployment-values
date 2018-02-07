@@ -68,6 +68,16 @@ email:
 # Maximum size of individual files that can be uploaded to nginx-storage
 #max_upload_size:    300m
 
+# Determines whether the control cluster supports HTTPS or HTTP.
+# When HTTPS is enabled, all HTTP connections get redirected to HTTPS.
+#nginx_proxy_ssl:   true
+
+# Determines whether the storage cluster supports HTTPS or HTTP.
+# NOTE: Currently there's no separate storage cluster and all its components (including nginx-storage)
+# are actually deployed to the control cluster. Therefore, as long as nginx-proxy has SSL enabled, all connections
+# from the outside to nginx-storage go over HTTPS too.
+#nginx_storage_ssl: false
+
 # Version of each repository to be deployed.
 # You can use braches, tags or commit IDs here.
 versions:
