@@ -1,6 +1,6 @@
 external_ip:             35.198.90.123
 cluster_address:         devel.concent.golem.network
-storage_cluster_address: "{{ cluster_address }}"
+storage_cluster_address: devel.concent.golem.network
 
 allowed_hosts:
   - "{{ external_ip }}"
