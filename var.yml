@@ -68,6 +68,11 @@ email:
 # Maximum size of individual files that can be uploaded to nginx-storage
 #max_upload_size:    300m
 
+# When enabled, special timing settings are inserted into Concent's config map.
+# These settings make protocol times significantly shorter, allowing us to efficiently
+# run tests against a live cluster.
+fast_timing: false
+
 # Determines whether the control cluster supports HTTPS or HTTP.
 # When HTTPS is enabled, all HTTP connections get redirected to HTTPS.
 #nginx_proxy_ssl:   true
