@@ -29,8 +29,8 @@ max_upload_size:    300m
 
 fast_timing: false
 
-nginx_proxy_ssl:   true
-nginx_storage_ssl: false
+nginx_proxy_allow_http:   false
+nginx_storage_allow_http: true
 
 versions:
   concent:                   dev
