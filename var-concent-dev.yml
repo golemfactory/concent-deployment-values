@@ -56,3 +56,4 @@ versions:
   concent:                   dev
   concent-deployment:        dev
   concent-deployment-values: dev
+  golem:                     0.13.0

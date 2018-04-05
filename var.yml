@@ -96,3 +96,4 @@ versions:
   concent:                   master
   concent-deployment:        master
   concent-deployment-values: master
+  golem:                     0.13.0
