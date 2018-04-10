@@ -9,6 +9,9 @@ allowed_hosts:
 database_name: concent_dev
 database_user: concent_dev_user
 
+storage_database_name: storage_concent_dev
+storage_database_user: storage_concent_dev_user
+
 email:
   host:               smtp.sendgrid.net
   port:               2525
