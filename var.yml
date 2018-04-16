@@ -40,10 +40,15 @@ admins:
   - name: piotr
     mail: piotr.dybowski@codepoets.it
 
-# Connection parameters of our PostgreSQL server
-#database_name: concent
-#database_user: concent_user
-database_host: 35.198.142.52
+# Connection parameters of our PostgreSQL server on control cluster
+#control_database_name: concent
+#control_database_user: concent_user
+control_database_host: 35.198.142.52
+
+# Connection parameters of our PostgreSQL server on storage cluster
+#storage_database_name: storage_concent
+#storage_database_user: storage_concent_user
+storage_database_host: "{{ control_database_host }}"
 
 email:
   host:               smtp.sendgrid.net
