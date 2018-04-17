@@ -27,7 +27,7 @@ nginx_storage_disk: concent-storage
 geth_disk:          ethereum-storage
 max_upload_size:    300m
 
-fast_timing: false
+fast_timing: true
 
 nginx_proxy_allow_http:   true
 nginx_storage_allow_http: true
