@@ -65,6 +65,9 @@ email:
 # Name of the persistent disk to be attached to geth
 #geth_disk:          concent-ethereum-storage
 
+# Name of the persistent disk to be attached to rabbitmq
+#rabbitmq_disk: queue-storage
+
 # Maximum size of individual files that can be uploaded to nginx-storage
 #max_upload_size:    300m
 

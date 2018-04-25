@@ -25,6 +25,7 @@ gke:
 
 nginx_storage_disk: concent-storage
 geth_disk:          ethereum-storage
+rabbitmq_disk:      queue-storage
 max_upload_size:    300m
 
 fast_timing: true
