@@ -22,23 +22,10 @@ allowed_hosts:
   - "{{ external_ip }}"
   - "{{ cluster_address }}"
 
-# These people receive e-mail notifications about every HTTP 5xx error caused by an
-# uncaught exception in the Django code.
-admins:
-  - name: cameel
-    mail: kamil.sliwak@codepoets.it
-  - name: bartek
-    mail: bartosz.betka@codepoets.it
-  - name: jakub
-    mail: jakub.czachura@codepoets.it
-  - name: karol
-    mail: karol.beker@codepoets.it
-  - name: michal
-    mail: michal.wyspianski@codepoets.it
-  - name: radek
-    mail: radoslaw.wrzesien@codepoets.it
-  - name: piotr
-    mail: piotr.dybowski@codepoets.it
+# These people receive e-mail notifications about bugs, statistics, events, systems status etc.
+#admins:
+#  - name: cameel
+#    mail: kamil.sliwak@codepoets.it
 
 # Connection parameters of our PostgreSQL server on control cluster
 #control_database_name: concent
