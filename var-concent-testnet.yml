@@ -1,0 +1,48 @@
+external_ip:             35.198.72.129
+cluster_address:         test.concent.golem.network
+storage_cluster_address: test.concent.golem.network
+
+allowed_hosts:
+  - "{{ external_ip }}"
+  - "{{ cluster_address }}"
+
+control_database_name: concent_testnet
+control_database_user: concent_testnet_user
+
+storage_database_name: storage_concent_testnet
+storage_database_user: storage_concent_testnet_user
+
+admins:
+  - name: cameel
+    mail: kamil.sliwak@codepoets.it
+  - name: bartek
+    mail: bartosz.betka@codepoets.it
+
+email:
+  host:               smtp.sendgrid.net
+  port:               2525
+  user:               apikey
+  use_tls:            true
+  default_from_email: no-reply@testnet.concent.golem.network
+  server_email:       no-reply@testnet.concent.golem.network
+
+gke:
+  service_account_name: concent-builder-service
+  project:              devel-concent-golem-network
+  cluster:              concent-testnet
+  zone:                 europe-west3-a
+
+nginx_storage_disk: concent-testnet-storage
+geth_disk:          concent-testnet-ethereum-storage
+rabbitmq_disk:      concent-testnet-queue-storage
+max_upload_size:    1000m
+
+fast_timing: false
+
+nginx_proxy_allow_http:   false
+nginx_storage_allow_http: true
+
+versions:
+  concent:                   testnet
+  concent-deployment:        testnet
+  concent-deployment-values: testnet
