@@ -63,6 +63,15 @@ email:
 # Maximum size of individual files that can be uploaded to nginx-storage
 #max_upload_size:    300m
 
+# Address of conductor endpoint for sending notification when a file is uploaded used by nginx-storage
+# The string with url path must end with slash, for example "http://conductor.default.svc.cluster.local/conductor/report-upload/",
+# not "http://conductor.default.svc.cluster.local/conductor/report-upload"
+# The first problem is that this variable is combined with the path to the file, so the result of this connection without the end slash
+# would look like this: http://conductor.default.svc.cluster.local/conductor/report-uploadblender/result/ef0dc1/ef0dc1.zzz523.zip, they don't work
+# The second problem is that the attacker will be able to modify path to another path,
+# like this: http://conductor.default.svc.cluster.local/conductor/report-upload-attacker-path/blender/result/ef0dc1/ef0dc1.zzz523.zip
+upload_report_url: "http://conductor.default.svc.cluster.local/conductor/report-upload/"
+
 # Address of concent ethereum account to be attached to concent-api
 concent_ethereum_address: "0xa5f3cd35385755e64b47f20a5d7334d7013f8015"
 
