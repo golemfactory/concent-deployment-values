@@ -46,3 +46,4 @@ versions:
   concent:                   staging
   concent-deployment:        staging
   concent-deployment-values: staging
+  golem:                     0.13.0
