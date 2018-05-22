@@ -46,3 +46,4 @@ versions:
   concent:                   testnet
   concent-deployment:        testnet
   concent-deployment-values: testnet
+  golem:                     0.13.0
