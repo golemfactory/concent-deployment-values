@@ -42,6 +42,9 @@ fast_timing: false
 nginx_proxy_allow_http:   false
 nginx_storage_allow_http: true
 
+replicas_count:
+  verifier: 3
+
 versions:
   concent:                   testnet
   concent-deployment:        testnet

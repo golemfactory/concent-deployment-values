@@ -52,6 +52,9 @@ fast_timing: true
 nginx_proxy_allow_http:   true
 nginx_storage_allow_http: true
 
+replicas_count:
+  verifier: 2
+
 versions:
   concent:                   dev
   concent-deployment:        dev
