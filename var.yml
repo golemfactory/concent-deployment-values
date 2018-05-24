@@ -90,6 +90,10 @@ fast_timing: false
 # from the outside to nginx-storage go over HTTPS too.
 #nginx_storage_allow_http: true
 
+# The number of application replicas
+#replicas_count:
+#  verifier: 2
+
 # Version of each repository to be deployed.
 # You can use braches, tags or commit IDs here.
 versions:
