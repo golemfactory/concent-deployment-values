@@ -80,6 +80,9 @@ concent_ethereum_address: "0xa5f3cd35385755e64b47f20a5d7334d7013f8015"
 # run tests against a live cluster.
 fast_timing: false
 
+# Variable which enable or disable deploy verification.
+#deploy_verification: true
+
 # Determines whether the control cluster supports HTTPS or HTTP.
 # When HTTPS is enabled, all HTTP connections get redirected to HTTPS.
 #nginx_proxy_allow_http:   false
