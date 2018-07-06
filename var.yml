@@ -100,6 +100,9 @@ allow_debug_info_in_error_responses: True
 #replicas_count:
 #  verifier: 2
 
+# Determines whether the mock verification is enabled or disabled
+#mock_verification_enabled: True
+
 # Version of each repository to be deployed.
 # You can use braches, tags or commit IDs here.
 versions:
