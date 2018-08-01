@@ -39,8 +39,8 @@ max_upload_size:    1000m
 
 fast_timing: false
 
-deploy_verification:       false
-mock_verification_enabled: True
+deploy_verification:       true
+mock_verification_enabled: False
 
 nginx_proxy_allow_http:   false
 nginx_storage_allow_http: true
