@@ -39,7 +39,8 @@ max_upload_size:    1000m
 
 fast_timing: false
 
-deploy_verification:       true
+deploy_verification:            true
+signing_service_on_the_cluster: false
 
 nginx_proxy_allow_http:   false
 nginx_storage_allow_http: true
