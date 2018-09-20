@@ -45,6 +45,8 @@ signing_service_on_the_cluster: true
 nginx_proxy_allow_http:   false
 nginx_storage_allow_http: true
 
+concent_public_key: Yps+87PvV5KT/klX0QrwapEJ35WEgWI2Q+jg21wuUAA7clpNr1FJ90eV4+MuaBnxD/qM7RI6iIpLAEM5IPB+UA==
+
 replicas_count:
   verifier: 2
 

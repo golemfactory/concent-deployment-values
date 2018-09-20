@@ -99,6 +99,10 @@ allow_debug_info_in_error_responses: True
 # from the outside to nginx-storage go over HTTPS too.
 #nginx_storage_allow_http: true
 
+# Variable contain `concent_public_key` from the `dev` and `staging` clusters.
+# They are used by signing-service.
+#concent_public_key: 85cZzVjahnRpUBwm0zlNnqTdYom1LF1P1WNShLg17cmhN2Us
+
 # The number of application replicas
 #replicas_count:
 #  verifier: 2
