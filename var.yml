@@ -86,6 +86,9 @@ allow_debug_info_in_error_responses: True
 # Variable which enable or disable deploy verification.
 #deploy_verification: true
 
+# Variable which enable or disable deploying signing-service on the cluster
+#signing_service_on_the_cluster: false
+
 # Determines whether the control cluster supports HTTPS or HTTP.
 # When HTTPS is enabled, all HTTP connections get redirected to HTTPS.
 #nginx_proxy_allow_http:   false
@@ -95,6 +98,10 @@ allow_debug_info_in_error_responses: True
 # are actually deployed to the control cluster. Therefore, as long as nginx-proxy has SSL enabled, all connections
 # from the outside to nginx-storage go over HTTPS too.
 #nginx_storage_allow_http: true
+
+# Variable contain `concent_public_key` from the `dev` and `staging` clusters.
+# They are used by signing-service.
+#concent_public_key: 85cZzVjahnRpUBwm0zlNnqTdYom1LF1P1WNShLg17cmhN2Us
 
 # The number of application replicas
 #replicas_count:

@@ -49,7 +49,10 @@ max_upload_size:    300m
 
 fast_timing: true
 
-deploy_verification:       true
+deploy_verification:            true
+signing_service_on_the_cluster: true
+
+concent_public_key: 85cZzVjahnRpUBwm0zlNnqTdYom1LF1P1WNShLg17cmhN2UssnPrCjHKTi5susO3wrr/q07eswumbL82b4HgOw==
 
 nginx_proxy_allow_http:   true
 nginx_storage_allow_http: true
