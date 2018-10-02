@@ -49,8 +49,9 @@ max_upload_size:    300m
 
 fast_timing: true
 
-deploy_verification:            true
-signing_service_on_the_cluster: true
+deploy_verification:                  true
+signing_service_on_the_cluster:       true
+allow_signing_service_authentication: true
 
 concent_public_key: 85cZzVjahnRpUBwm0zlNnqTdYom1LF1P1WNShLg17cmhN2UssnPrCjHKTi5susO3wrr/q07eswumbL82b4HgOw==
 

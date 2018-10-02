@@ -89,6 +89,10 @@ allow_debug_info_in_error_responses: True
 # Variable which enable or disable deploying signing-service on the cluster
 #signing_service_on_the_cluster: false
 
+# Variable which enable or disable signing-service authentication on the cluster
+#allow_signing_service_authentication: false
+
+
 # Determines whether the control cluster supports HTTPS or HTTP.
 # When HTTPS is enabled, all HTTP connections get redirected to HTTPS.
 #nginx_proxy_allow_http:   false
