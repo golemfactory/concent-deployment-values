@@ -83,9 +83,6 @@ fast_timing: false
 # Variable which enable or disable debug info in error responses in django apps
 allow_debug_info_in_error_responses: True
 
-# Variable which enable or disable deploy verification.
-#deploy_verification: true
-
 # Variable which enable or disable deploying signing-service on the cluster
 #signing_service_on_the_cluster: false
 

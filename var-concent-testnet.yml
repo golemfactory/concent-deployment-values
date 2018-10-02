@@ -39,7 +39,6 @@ max_upload_size:    1000m
 
 fast_timing: false
 
-deploy_verification:                  true
 signing_service_on_the_cluster:       false
 allow_signing_service_authentication: false
 
