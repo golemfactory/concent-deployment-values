@@ -1,11 +1,3 @@
-external_ip:             35.198.90.123
-cluster_address:         devel.concent.golem.network
-storage_cluster_address: devel.concent.golem.network
-
-allowed_hosts:
-  - "{{ external_ip }}"
-  - "{{ cluster_address }}"
-
 control_database_name: concent_dev
 control_database_user: concent_dev_user
 
@@ -36,16 +28,7 @@ email:
   default_from_email: no-reply@devel.concent.golem.network
   server_email:       no-reply@devel.concent.golem.network
 
-gke:
-  service_account_name: concent-builder-service
-  project:              devel-concent-golem-network
-  cluster:              concent-dev
-  zone:                 europe-west3-a
 
-nginx_storage_disk: concent-storage
-geth_disk:          ethereum-storage
-rabbitmq_disk:      queue-storage
-max_upload_size:    300m
 
 fast_timing: true
 
@@ -56,15 +39,59 @@ concent_public_key: 85cZzVjahnRpUBwm0zlNnqTdYom1LF1P1WNShLg17cmhN2UssnPrCjHKTi5s
 
 nginx_proxy_allow_http:   true
 nginx_storage_allow_http: true
+max_upload_size:         300m
 
 concent_ethereum_public_key: "cd53fdaa9e9f79b16b39b55d7936d2735071b6af8b7860f0bc40aa80cded80060f05cf189aec96f977a1dbc589b48b69bc529f8f5059274f0f541218c76ce136"
 gnt_deposit_address:         "0xcfB81A6EE3ae6aD4Ac59ddD21fB4589055c13DaD"
 
+# We use only the minor and major version number to check compatibility
+current_golem_messages_version:  2.15
+previous_golem_messages_version: 2.14
+
+previous_concent_version:        v0.9.0-78-g4dc8cec
+
 replicas_count:
   verifier: 2
 
-versions:
-  concent:                   dev
-  concent-deployment:        dev
-  concent-deployment-values: dev
-  golem:                     0.13.0
+gke:
+  service_account_name: concent-builder-service
+  project:              devel-concent-golem-network
+  zone:                 europe-west3-a
+
+concent_versions:
+  # golem-message 2.15.0
+  v0.10.0:
+    load_balancer_turned_on:         true
+    external_ip:                     35.198.90.123
+    cluster_address:                 devel.concent.golem.network
+    storage_cluster_address:         devel.concent.golem.network
+    allowed_hosts:
+       - 35.198.90.123
+       - devel.concent.golem.network
+       - internal.local
+    versions:
+      concent-deployment:        dev
+    # When the version of a golem message changes(here is new version), remember to replace these variables
+    # with variables from the older golem message version.
+    # This behaviour is needed because we use cluster and disks from oldest golem-messages version
+    nginx_storage_disk:      concent-storage
+    geth_disk:               ethereum-storage
+    rabbitmq_disk:           queue-storage
+    gke:
+      cluster:              concent-dev
+
+  # golem-message 2.14.0
+  v0.9.0-78-g4dc8cec:
+    external_ip:              35.234.82.210
+    cluster_address:          35.234.82.210
+    storage_cluster_address:  35.234.82.210
+    allowed_hosts:
+      - devel.concent.golem.network
+      - 35.234.82.210
+    versions:
+      concent-deployment: dev-old-gm
+    nginx_storage_disk:   concent-dev-old-gm-storage
+    geth_disk:            concent-dev-old-gm-ethereum-storage
+    rabbitmq_disk:        concent-dev-old-gm-queue-storage
+    gke:
+      cluster:          concent-old-dev

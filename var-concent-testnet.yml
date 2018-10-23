@@ -1,11 +1,3 @@
-external_ip:             35.198.72.129
-cluster_address:         test.concent.golem.network
-storage_cluster_address: test.concent.golem.network
-
-allowed_hosts:
-  - "{{ external_ip }}"
-  - "{{ cluster_address }}"
-
 control_database_name: concent_testnet
 control_database_user: concent_testnet_user
 
@@ -29,13 +21,7 @@ email:
 gke:
   service_account_name: concent-builder-service
   project:              devel-concent-golem-network
-  cluster:              concent-testnet
   zone:                 europe-west3-a
-
-nginx_storage_disk: concent-testnet-storage
-geth_disk:          concent-testnet-ethereum-storage
-rabbitmq_disk:      concent-testnet-queue-storage
-max_upload_size:    1000m
 
 fast_timing: false
 
@@ -44,15 +30,52 @@ allow_signing_service_authentication: false
 
 nginx_proxy_allow_http:   false
 nginx_storage_allow_http: true
+max_upload_size:    1000m
 
 concent_ethereum_public_key: "a7ea7479471be3035e3de19ecc495c13ab77d0f9c0bfcfb2b60356d89d874c6a0e016b1610719cd16581025bb65431f2c45f2ce4be2609ee88a63c9ef05e9e8c"
 gnt_deposit_address:         "0x694667D7787CFca1892606E81734860a617537B2"
 
+# We use only the minor and major version number to check compatibility
+current_golem_messages_version:  2.15
+previous_golem_messages_version: 2.14
+
+previous_concent_version:        v0.9.0-78-g4dc8cec
+
 replicas_count:
   verifier: 3
 
-versions:
-  concent:                   testnet
-  concent-deployment:        testnet
-  concent-deployment-values: testnet
-  golem:                     0.13.0
+concent_versions:
+  # golem-message 2.15.0
+  v0.10.0:
+    load_balancer_turned_on:         false
+    external_ip:                     35.198.72.129
+    cluster_address:                 test.concent.golem.network
+    storage_cluster_address:         test.concent.golem.network
+    allowed_hosts:
+       - 35.198.72.129
+       - test.concent.gole.network
+    versions:
+      concent-deployment:      testnet
+    # When the version of a golem message changes(here is new version), remember to replace these variables
+    # with variables from the older golem message version.
+    # This behaviour is needed because we use cluster and disks from oldest golem-messages version
+    nginx_storage_disk: concent-testnet-storage
+    geth_disk:          concent-testnet-ethereum-storage
+    rabbitmq_disk:      concent-testnet-queue-storage
+    gke:
+      cluster:              concent-testnet
+
+  # golem-message 2.14.0
+  v0.9.0-78-g4dc8cec:
+    external_ip:              #address ip!
+    cluster_address:          #address ip!
+    storage_cluster_address:  #address ip!
+    allowed_hosts:
+      # - ip
+    versions:
+      concent-deployment:      testnet-old-gm
+    nginx_storage_disk:        #create nginx disk concent-testnet-old-gm-storage
+    geth_disk:                 # create geth disk concent-testnet-old-gm-ethereum-storage
+    rabbitmq_disk:             # create rabbitmq disk concent-testnet-old-gm-queue-storage
+    gke:
+      cluster:              # create cluster concent-testnet-old-gm
