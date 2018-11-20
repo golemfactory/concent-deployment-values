@@ -18,9 +18,9 @@ image_prefix: concent-
 # All requests with a different value will be rejected by Django.
 # NOTE: The Host header is specified by the client and might not even match our
 # own IP or domain. That's exactly why this whitelist exists.
-allowed_hosts:
-  - "{{ external_ip }}"
-  - "{{ cluster_address }}"
+#allowed_hosts:
+#- "{{ external_ip }}"
+#- "{{ cluster_address }}"
 
 # These people receive e-mail notifications about bugs, statistics, events, systems status etc.
 #admins:
@@ -111,10 +111,7 @@ allow_debug_info_in_error_responses: True
 #replicas_count:
 #  verifier: 2
 
-# Version of each repository to be deployed.
+# Version of concent-deployment repository to be deployed.
 # You can use braches, tags or commit IDs here.
 versions:
-  concent:                   master
   concent-deployment:        master
-  concent-deployment-values: master
-  golem:                     0.13.0
