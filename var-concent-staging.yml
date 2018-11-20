@@ -55,7 +55,7 @@ concent_versions:
     storage_cluster_address:         staging.concent.golem.network
     allowed_hosts:
        - 35.198.165.137
-       - staging.concent.gole.network
+       - staging.concent.golem.network
     versions:
       concent-deployment:      staging
     # When the version of a golem message changes(here is new version), remember to replace these variables
