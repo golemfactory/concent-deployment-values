@@ -30,7 +30,7 @@ email:
 
 
 
-fast_timing: true
+fast_timing: false
 
 signing_service_on_the_cluster:       true
 allow_signing_service_authentication: true
@@ -59,9 +59,9 @@ gke:
   zone:                 europe-west3-a
 
 concent_versions:
-  # golem-message 2.15.2
-  v0.10.2-9-gccfae9af:
-    load_balancer_turned_on:         true
+  # golem-message 2.15.0
+  v0.10.2-47-ga7dbb66:
+    load_balancer_turned_on:         false
     external_ip:                     35.198.90.123
     cluster_address:                 devel.concent.golem.network
     storage_cluster_address:         devel.concent.golem.network

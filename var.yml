@@ -3,6 +3,28 @@ docker_registry: gcr.io/devel-concent-golem-network
 
 image_prefix: concent-
 
+# External IP that can be used as the entry point to the cluster.
+# Will be assigned to the nginx-proxy service.
+#external_ip: a.b.c.d
+
+# Name of deployment server
+deployment_server_name: concent-builder
+
+# Domain name pointing at the entry point to the control cluster.
+#cluster_address: concent.golem.network
+
+# Domain name pointing at the entry point to the storage cluster.
+# Currently control and storage are the same cluster but this will change in the future.
+#storage_cluster_address: {{ cluster_address }}
+
+# These addresses are the only values allowed in the HTTP Host header.
+# All requests with a different value will be rejected by Django.
+# NOTE: The Host header is specified by the client and might not even match our
+# own IP or domain. That's exactly why this whitelist exists.
+#allowed_hosts:
+#- "{{ external_ip }}"
+#- "{{ cluster_address }}"
+
 # These people receive e-mail notifications about bugs, statistics, events, systems status etc.
 #admins:
 #  - name: cameel
