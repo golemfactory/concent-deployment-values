@@ -1,0 +1,14 @@
+# Name of deployment server
+deployment_server_name: concent-builder
+
+# Name of jenkins admin email address
+jenkins_admin_email_address: admin@example.com
+
+# name of jenkins url address
+jenkins_url: http://builder.concent.golem.network
+
+# Name of github project url
+jenkins_github_url_address: https://github.com/golemfactory/concent-deployment.git
+
+# name of jenkins webhook endpoint
+jenkins_url_webhook_endpoint: http://builder.concent.golem.network/concent-deployment-commit-notification/
