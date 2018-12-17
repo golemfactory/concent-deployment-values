@@ -7,15 +7,6 @@ image_prefix: concent-
 # Will be assigned to the nginx-proxy service.
 #external_ip: a.b.c.d
 
-# Name of deployment server
-deployment_server_name: concent-builder
-
-# Name of jenkins admin email address
-jenkins_admin_email_address: admin@example.com
-
-# Name of jenkins url address
-jenkins_url_address: builder.concent.golem.network
-
 # Domain name pointing at the entry point to the control cluster.
 #cluster_address: concent.golem.network
 

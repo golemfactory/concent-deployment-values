@@ -1,0 +1,9 @@
+# Name of deployment server
+deployment_server_name: concent-builder
+
+# Name of jenkins admin email address
+jenkins_admin_email_address: admin@example.com
+
+# Name of jenkins url address
+jenkins_url_address: builder.concent.golem.network
+
