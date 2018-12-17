@@ -7,3 +7,5 @@ jenkins_admin_email_address: admin@example.com
 # Name of jenkins url address
 jenkins_url_address: builder.concent.golem.network
 
+# Name of github project url
+jenkins_github_url_address: https://github.com/bartoszbetka/concent-deployment.git/

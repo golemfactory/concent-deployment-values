@@ -70,7 +70,7 @@ concent_versions:
        - devel.concent.golem.network
        - internal.local
     versions:
-      concent-deployment:        dev
+      concent-deployment:        CI
     # When the version of a golem message changes(here is new version), remember to replace these variables
     # with variables from the older golem message version.
     # This behaviour is needed because we use cluster and disks from oldest golem-messages version
