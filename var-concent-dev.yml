@@ -46,9 +46,9 @@ gnt_deposit_address:         "0xcfB81A6EE3ae6aD4Ac59ddD21fB4589055c13DaD"
 
 # We use only the minor and major version number to check compatibility
 current_golem_messages_version:  2.15
-previous_golem_messages_version: 2.14
+previous_golem_messages_version:
 
-previous_concent_version:        v0.9.0-78-g4dc8cec
+previous_concent_version:
 
 replicas_count:
   verifier: 2
@@ -59,8 +59,8 @@ gke:
   zone:                 europe-west3-a
 
 concent_versions:
-  # golem-message 2.15.0
-  v0.10.0:
+  # golem-message 2.15.2
+  v0.10.2-9-gccfae9af:
     load_balancer_turned_on:         true
     external_ip:                     35.198.90.123
     cluster_address:                 devel.concent.golem.network
@@ -79,19 +79,3 @@ concent_versions:
     rabbitmq_disk:           queue-storage
     gke:
       cluster:              concent-dev
-
-  # golem-message 2.14.0
-  v0.9.0-78-g4dc8cec:
-    external_ip:              35.234.82.210
-    cluster_address:          35.234.82.210
-    storage_cluster_address:  35.234.82.210
-    allowed_hosts:
-      - devel.concent.golem.network
-      - 35.234.82.210
-    versions:
-      concent-deployment: dev-old-gm
-    nginx_storage_disk:   concent-dev-old-gm-storage
-    geth_disk:            concent-dev-old-gm-ethereum-storage
-    rabbitmq_disk:        concent-dev-old-gm-queue-storage
-    gke:
-      cluster:          concent-old-dev

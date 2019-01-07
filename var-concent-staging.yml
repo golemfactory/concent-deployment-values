@@ -42,14 +42,14 @@ replicas_count:
 
 # We use only the minor and major version number to check compatibility
 current_golem_messages_version:  2.15
-previous_golem_messages_version: 2.14
+previous_golem_messages_version:
 
-previous_concent_version:        v0.9.0-78-g4dc8cec
+previous_concent_version:
 
 concent_versions:
-  # golem-message 2.15.0
-  v0.10.2:
-    load_balancer_turned_on:         false
+  # golem-message 2.15.2
+  v0.10.2-9-gccfae9af:
+    load_balancer_turned_on:         true
     external_ip:                     35.198.165.137
     cluster_address:                 staging.concent.golem.network
     storage_cluster_address:         staging.concent.golem.network
@@ -66,18 +66,3 @@ concent_versions:
     rabbitmq_disk:      concent-staging-queue-storage
     gke:
       cluster:              concent-staging
-
-  # golem-message 2.14.0
-  v0.9.0-78-g4dc8cec:
-    external_ip:              #address ip!
-    cluster_address:          #address ip!
-    storage_cluster_address:  #address ip!
-    allowed_hosts:
-      # - ip
-    versions:
-      concent-deployment:      staging-old-gm
-    nginx_storage_disk:        #create nginx disk concent-staging-old-gm-storage
-    geth_disk:                 # create geth disk concent-staging-old-gm-ethereum-storage
-    rabbitmq_disk:             # create rabbitmq disk concent-staging-old-gm-queue-storage
-    gke:
-      cluster:              # create cluster concent-staging-old-gm
