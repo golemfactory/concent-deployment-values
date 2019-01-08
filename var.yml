@@ -3,25 +3,6 @@ docker_registry: gcr.io/devel-concent-golem-network
 
 image_prefix: concent-
 
-# External IP that can be used as the entry point to the cluster.
-# Will be assigned to the nginx-proxy service.
-#external_ip: a.b.c.d
-
-# Domain name pointing at the entry point to the control cluster.
-#cluster_address: concent.golem.network
-
-# Domain name pointing at the entry point to the storage cluster.
-# Currently control and storage are the same cluster but this will change in the future.
-#storage_cluster_address: {{ cluster_address }}
-
-# These addresses are the only values allowed in the HTTP Host header.
-# All requests with a different value will be rejected by Django.
-# NOTE: The Host header is specified by the client and might not even match our
-# own IP or domain. That's exactly why this whitelist exists.
-#allowed_hosts:
-#- "{{ external_ip }}"
-#- "{{ cluster_address }}"
-
 # These people receive e-mail notifications about bugs, statistics, events, systems status etc.
 #admins:
 #  - name: cameel
@@ -48,17 +29,7 @@ email:
 #gke:
 #  service_account_name: concent-builder-service
 #  project:              devel-concent-golem-network
-#  cluster:              concent
 #  zone:                 europe-west3-a
-
-# Name of the persistent disk to be attached to nginx-storage
-#nginx_storage_disk: concent-storage
-
-# Name of the persistent disk to be attached to geth
-#geth_disk:          concent-ethereum-storage
-
-# Name of the persistent disk to be attached to rabbitmq
-#rabbitmq_disk: queue-storage
 
 # Maximum size of individual files that can be uploaded to nginx-storage
 #max_upload_size:    300m
@@ -111,7 +82,62 @@ allow_debug_info_in_error_responses: True
 #replicas_count:
 #  verifier: 2
 
-# Version of concent-deployment repository to be deployed.
-# You can use braches, tags or commit IDs here.
-versions:
-  concent-deployment:        master
+# This two variables decide which golem-messages versions are supported and
+# whether two versions or one are supported.
+# They are depend on the `load_balancer_turned_on` variable that enables routing.
+# This variable should be insert in one of the concent versions(one of the clusters).
+# The previous_golem_messages_version variable controls routing of the previous golem-messages version to the second cluster.
+# When the variable is empty, the traffic to second cluster is disabled and only the current golem-messages version is supported.
+# We use only the minor and major version number to check compatibility
+#current_golem_messages_version:  2.15
+#previous_golem_messages_version: 2.14
+
+# This variable specify previous concent version in case we support two versions of concent with different golem-messages.
+# The value of it must be equal to the second dictionary key.
+#previous_concent_version:        v0.9.0-78-g4dc8cec
+
+# Dictionary with clusters parameters and concent versions.
+# We support a maximum of two concent versions(one cluster for each version).
+#concent_versions:
+  # Specific concent version which contain specific version of golem-messages.
+  #v0.10.2:
+    # This variable decide whether the routing are enabled or disabled on this concent version(on this cluster).
+    # Remember the routing should be enable only on the current concent version which contain current golem-messages version.
+    #load_balancer_turned_on:         true
+
+    # External IP that can be used as the entry point to the cluster.
+    # Will be assigned to the nginx-proxy service.
+    #external_ip: a.b.c.d
+
+    # Domain name pointing at the entry point to the control cluster.
+    #cluster_address: concent.golem.network
+
+    # Domain name pointing at the entry point to the storage cluster.
+    # Currently control and storage are the same cluster but this will change in the future.
+    #storage_cluster_address: {{ cluster_address }}
+
+    # These addresses are the only values allowed in the HTTP Host header.
+    # All requests with a different value will be rejected by Django.
+    # NOTE: The Host header is specified by the client and might not even match our
+    # own IP or domain. That's exactly why this whitelist exists.
+    #allowed_hosts:
+    #- "{{ external_ip }}"
+    #- "{{ cluster_address }}"
+
+    # Version of concent-deployment repository to be deployed.
+    # You can use braches, tags or commit IDs here.
+    #versions:
+    #  concent-deployment:        master
+
+    # Name of the persistent disk to be attached to nginx-storage
+    #nginx_storage_disk: concent-storage
+
+    # Name of the persistent disk to be attached to geth
+    #geth_disk:          concent-ethereum-storage
+
+    # Name of the persistent disk to be attached to rabbitmq
+    #rabbitmq_disk: queue-storage
+
+    # The name of the cluster on which the specified version of the concent will be deployed
+    #gke:
+    #  cluster:              concent-dev
