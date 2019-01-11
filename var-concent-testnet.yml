@@ -54,6 +54,7 @@ concent_versions:
     allowed_hosts:
        - 35.198.72.129
        - test.concent.gole.network
+       - internal.local
     versions:
       concent-deployment:      testnet
     # When the version of a golem message changes(here is new version), remember to replace these variables
