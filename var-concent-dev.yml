@@ -30,7 +30,7 @@ email:
 
 
 
-fast_timing: false
+fast_timing: true
 
 signing_service_on_the_cluster:       true
 allow_signing_service_authentication: true
