@@ -141,3 +141,107 @@ allow_debug_info_in_error_responses: True
     # The name of the cluster on which the specified version of the concent will be deployed
     #gke:
     #  cluster:              concent-dev
+
+
+# The available application resources
+resource_limits:
+
+# Worker apps
+  worker_apps:
+    concent_api_worker:
+      memory:
+        requests: 350Mi
+        limits:   600Mi
+      cpu:
+        requests: 50m
+        limits:   800m
+    conductor_worker:
+      memory:
+        requests: 350Mi
+        limits:   600Mi
+      cpu:
+        requests: 50m
+        limits:   800m
+    verifier:
+      memory:
+        requests: 1Gi
+        limits:   1.5Gi
+      cpu:
+        requests: 600m
+        limits:   800m
+
+# Http server apps
+  http_server_apps:
+    concent_api:
+      memory:
+        requests: 500Mi
+        limits:   1Gi
+      cpu:
+        requests: 50m
+        limits:   800m
+    conductor:
+      memory:
+        requests: 350Mi
+        limits:   600Mi
+      cpu:
+        requests: 50m
+        limits:   800m
+    gatekeeper:
+      memory:
+        requests: 500Mi
+        limits:   1Gi
+      cpu:
+        requests: 50m
+        limits:   800m
+
+# Tcp socket apps
+  tcp_socket_apps:
+    middleman:
+      memory:
+        requests: 100Mi
+        limits:   400Mi
+      cpu:
+        requests: 50m
+        limits:   500m
+  # Only for concent-dev and concent-staging clusters
+    signing_service:
+      memory:
+        requests: 100Mi
+        limits:   400Mi
+      cpu:
+        requests: 50m
+        limits:   500m
+
+# Nginx servers
+  nginx:
+    nginx_proxy:
+      memory:
+        requests: 100Mi
+        limits:   512Mi
+      cpu:
+        requests: 200m
+        limits:   600m
+    nginx_storage:
+      memory:
+        requests: 100Mi
+        limits:   512Mi
+      cpu:
+        requests: 200m
+        limits:   600m
+
+# Geth and rabbitmq
+  others:
+    geth:
+      memory:
+        requests: 2.5Gi
+        limits:   3Gi
+      cpu:
+        requests: 700m
+        limits:   1100m
+    rabbitmq:
+      memory:
+        requests: 1.2Gi
+        limits:   1.6Gi
+      cpu:
+        requests: 600m
+        limits:   900m
