@@ -75,7 +75,8 @@ concent_versions:
     # with variables from the older golem message version.
     # This behaviour is needed because we use cluster and disks from oldest golem-messages version
     nginx_storage_disk:      concent-storage
-    geth_disk:               ethereum-storage
     rabbitmq_disk:           queue-storage
+    external_geth_address:
+    geth_disk:               ethereum-storage
     gke:
       cluster:              concent-dev

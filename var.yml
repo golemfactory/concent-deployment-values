@@ -132,6 +132,10 @@ allow_debug_info_in_error_responses: True
     # Name of the persistent disk to be attached to nginx-storage
     #nginx_storage_disk: concent-storage
 
+    # This variable controls the building and deploying geth on the cluster.
+    # When it is empty, the internal geth will be built and deployed.
+    # Otherwise, the specified address will be used, in this case the variable `geth_disk` will not be used, it should be empty.
+    #external_geth_address:
     # Name of the persistent disk to be attached to geth
     #geth_disk:          concent-ethereum-storage
 
