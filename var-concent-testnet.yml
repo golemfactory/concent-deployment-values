@@ -25,7 +25,7 @@ cluster_resources:
 
 fast_timing: false
 
-signing_service_on_the_cluster:       false
+signing_service_on_the_cluster:       true
 allow_signing_service_authentication: true
 
 nginx_proxy_allow_http:   false
@@ -35,6 +35,8 @@ max_upload_size:    1000m
 concent_ethereum_public_key: "10240f19fb07346d62a0a4a20c9870ef8cb62c956b2f0e5fb43b73a5595d711c1923f68625f38f4d58475d819467ae24c2ee51612c88939a2936c6c35e09fe85"
 gnt_deposit_address:         "0x74751ae0b80276dB6b9310b7F8F79fe044205b83"
 ethereum_chain:              "rinkeby"
+
+concent_public_key:    8AjZgFYJ8ydCg41U7KdzHf1Dkqh9R02UA0bqRtgF6mrZcDR8ee8L4JSzQNJ79pBHIH80HQ82zbr4XgIsO5HbzQ==
 
 # This two variables should contain only the minor and major version of golem-messages protocol.
 # They also contain only one dot `x.xx`. The patch version is checked by regex in nginx-router.
