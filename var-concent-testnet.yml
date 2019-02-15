@@ -60,8 +60,9 @@ concent_versions:
     # When the version of a golem message changes(here is new version), remember to replace these variables
     # with variables from the older golem message version.
     # This behaviour is needed because we use cluster and disks from oldest golem-messages version
-    nginx_storage_disk: concent-testnet-storage
-    geth_disk:          concent-testnet-ethereum-storage
-    rabbitmq_disk:      concent-testnet-queue-storage
+    nginx_storage_disk:    concent-testnet-storage
+    rabbitmq_disk:         concent-testnet-queue-storage
+    external_geth_address:
+    geth_disk:             concent-testnet-ethereum-storage
     gke:
       cluster:              concent-testnet
