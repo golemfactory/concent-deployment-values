@@ -88,7 +88,9 @@ allow_debug_info_in_error_responses: True
 # This variable should be insert in one of the concent versions(one of the clusters).
 # The previous_golem_messages_version variable controls routing of the previous golem-messages version to the second cluster.
 # When the variable is empty, the traffic to second cluster is disabled and only the current golem-messages version is supported.
-# We use only the minor and major version number to check compatibility
+# The current_golem_messages_version and previous_golem_messages_version variables should contain only the minor and major version of golem-messages protocol.
+# They also contain only one dot `x.xx`. The patch version is checked by regex in nginx-router.
+# We use only the minor and major version number to check compatibility.
 #current_golem_messages_version:  2.15
 #previous_golem_messages_version: 2.14
 
