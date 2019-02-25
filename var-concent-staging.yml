@@ -36,6 +36,7 @@ concent_public_key: Yps+87PvV5KT/klX0QrwapEJ35WEgWI2Q+jg21wuUAA7clpNr1FJ90eV4+Mu
 
 concent_ethereum_public_key: "b01e41603b2e45288dab70d3918f0181cd7a0b95d92cdadde27c3fdf59692bcbf08e67c3e12ebb9226ba2b61bb66d2d49f482ffe3b7d6e81b23becc30221c45f"
 gnt_deposit_address:         "0xA172A4B929Ae9589E3228F723CB99508b8c0709a"
+ethereum_chain:              "rinkeby"
 
 replicas_count:
   verifier: 2
