@@ -43,6 +43,7 @@ max_upload_size:         300m
 
 concent_ethereum_public_key: "cd53fdaa9e9f79b16b39b55d7936d2735071b6af8b7860f0bc40aa80cded80060f05cf189aec96f977a1dbc589b48b69bc529f8f5059274f0f541218c76ce136"
 gnt_deposit_address:         "0xcfB81A6EE3ae6aD4Ac59ddD21fB4589055c13DaD"
+ethereum_chain:              "rinkeby"
 
 # This two variables should contain only the minor and major version of golem-messages protocol.
 # They also contain only one dot `x.xx`. The patch version is checked by regex in nginx-router.

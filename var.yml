@@ -78,6 +78,9 @@ allow_debug_info_in_error_responses: True
 # Adress of concent GNTDeposit contract
 #gnt_deposit_address: "0xcfB81A6EE3ae6aD4Ac59ddD21fB4589055c13DaD"
 
+# Name of ethereum network/blockchain that will be use by golem sci
+#ethereum_chain:              "rinkeby"
+
 # The number of application replicas
 #replicas_count:
 #  verifier: 2
