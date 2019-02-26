@@ -55,7 +55,7 @@ concent_versions:
     storage_cluster_address:         test.concent.golem.network
     allowed_hosts:
        - 35.198.72.129
-       - test.concent.gole.network
+       - test.concent.golem.network
        - internal.local
     versions:
       concent-deployment:      testnet
