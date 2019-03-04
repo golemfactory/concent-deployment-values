@@ -18,11 +18,6 @@ email:
   default_from_email: no-reply@testnet.concent.golem.network
   server_email:       no-reply@testnet.concent.golem.network
 
-gke:
-  service_account_name: concent-builder-service
-  project:              devel-concent-golem-network
-  zone:                 europe-west3-a
-
 fast_timing: false
 
 signing_service_on_the_cluster:       false

@@ -55,11 +55,6 @@ previous_concent_version:
 replicas_count:
   verifier: 2
 
-gke:
-  service_account_name: concent-builder-service
-  project:              devel-concent-golem-network
-  zone:                 europe-west3-a
-
 concent_versions:
   # golem-message 2.15.2
   v0.10.2-9-gccfae9af:

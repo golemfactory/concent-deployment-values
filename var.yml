@@ -26,10 +26,10 @@ email:
   default_from_email: no-reply@concent.golem.network
   server_email:       no-reply@concent.golem.network
 
-#gke:
-#  service_account_name: concent-builder-service
-#  project:              devel-concent-golem-network
-#  zone:                 europe-west3-a
+gke:
+  service_account_name: concent-builder-service
+  project:              devel-concent-golem-network
+  zone:                 europe-west3-a
 
 # Maximum size of individual files that can be uploaded to nginx-storage
 #max_upload_size:    300m
