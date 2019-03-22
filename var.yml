@@ -151,6 +151,16 @@ allow_debug_info_in_error_responses: True
     #gke:
     #  cluster:              concent-dev
 
+# Amount of the application instances
+# This values can be overwrite by put interesting dictionary key in the specific cluster definition. Definition of cluster can be find in the concent_versions dictionary.
+replica_count:
+  concent_api:        1
+  concent_api_worker: 1
+  conductor:          1
+  conductor_worker:   1
+  gatekeeper:         1
+  nginx_proxy:        1
+  verifier:           1
 
 # The available application resources
 resource_limits:
