@@ -163,24 +163,25 @@ replica_count:
   verifier:           1
 
 # The available application resources
+# This values can be overwrite by put interesting dictionary key in the specific cluster definition. Definition of cluster can be find in the concent_versions dictionary.
 resource_limits:
 
 # Worker apps
   worker_apps:
     concent_api_worker:
       memory:
-        requests: 350Mi
-        limits:   600Mi
+        requests: 300Mi
+        limits:   500Mi
       cpu:
         requests: 50m
-        limits:   800m
+        limits:   500m
     conductor_worker:
       memory:
-        requests: 350Mi
-        limits:   600Mi
+        requests: 300Mi
+        limits:   500Mi
       cpu:
         requests: 50m
-        limits:   800m
+        limits:   500m
     verifier:
       memory:
         requests: 1Gi
@@ -193,25 +194,25 @@ resource_limits:
   http_server_apps:
     concent_api:
       memory:
-        requests: 500Mi
-        limits:   1Gi
+        requests: 300Mi
+        limits:   500Mi
       cpu:
         requests: 50m
-        limits:   800m
+        limits:   500m
     conductor:
       memory:
-        requests: 350Mi
-        limits:   600Mi
+        requests: 300Mi
+        limits:   500Mi
       cpu:
         requests: 50m
-        limits:   800m
+        limits:   500m
     gatekeeper:
       memory:
-        requests: 500Mi
-        limits:   1Gi
+        requests: 300Mi
+        limits:   500Mi
       cpu:
         requests: 50m
-        limits:   800m
+        limits:   500m
 
 # Tcp socket apps
   tcp_socket_apps:
@@ -236,17 +237,17 @@ resource_limits:
     nginx_proxy:
       memory:
         requests: 100Mi
-        limits:   512Mi
+        limits:   500Mi
       cpu:
         requests: 200m
-        limits:   600m
+        limits:   500m
     nginx_storage:
       memory:
         requests: 100Mi
-        limits:   512Mi
+        limits:   500Mi
       cpu:
         requests: 200m
-        limits:   600m
+        limits:   500m
 
 # Geth and rabbitmq
   others:
@@ -260,7 +261,7 @@ resource_limits:
     rabbitmq:
       memory:
         requests: 1.2Gi
-        limits:   1.6Gi
+        limits:   1.4Gi
       cpu:
-        requests: 600m
-        limits:   900m
+        requests: 500m
+        limits:   700m
