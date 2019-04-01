@@ -38,9 +38,6 @@ previous_golem_messages_version:
 
 previous_concent_version:
 
-replicas_count:
-  verifier: 3
-
 concent_versions:
   # golem-message 2.15.2
   v0.10.2-9-gccfae9af:
@@ -63,3 +60,5 @@ concent_versions:
     geth_disk:             concent-testnet-ethereum-storage
     gke:
       cluster:              concent-testnet
+    replicas_count:
+      verifier: 3

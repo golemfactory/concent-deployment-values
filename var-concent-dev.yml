@@ -52,8 +52,6 @@ previous_golem_messages_version:
 
 previous_concent_version:
 
-replicas_count:
-  verifier: 2
 
 concent_versions:
   # golem-message 2.15.2
