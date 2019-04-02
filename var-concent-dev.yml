@@ -29,6 +29,11 @@ email:
   server_email:       no-reply@devel.concent.golem.network
 
 
+gke:
+  service_account_name: concent-deployer
+  project:              devel-concent-golem-network
+  region:               europe-west3
+  zone:                 europe-west3-a
 
 fast_timing: true
 

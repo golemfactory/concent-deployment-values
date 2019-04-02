@@ -42,7 +42,7 @@ previous_concent_version:
 
 concent_versions:
   # golem-message 2.15.2
-  v0.10.2-9-gccfae9af:
+  v0.11.0:
     load_balancer_turned_on:         true
     external_ip:                     35.198.165.137
     cluster_address:                 staging.concent.golem.network
