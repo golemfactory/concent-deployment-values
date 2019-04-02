@@ -57,6 +57,9 @@ allow_debug_info_in_error_responses: True
 # Variable which enable or disable signing-service authentication on the cluster
 #allow_signing_service_authentication: false
 
+ethnode_geth_rinkeby_address: http://35.242.222.84:8545
+ethnode_geth_mainnet_address: http://35.198.97.234:8545
+
 
 # Determines whether the control cluster supports HTTPS or HTTP.
 # When HTTPS is enabled, all HTTP connections get redirected to HTTPS.
