@@ -71,7 +71,7 @@ concent_versions:
     # This behaviour is needed because we use cluster and disks from oldest golem-messages version
     nginx_storage_disk:      concent-storage
     rabbitmq_disk:           queue-storage
-    external_geth_address:
+    external_geth_address:   "{{ ethnode_geth_rinkeby_address }}"
     geth_disk:               ethereum-storage
     gke:
       cluster:              concent-dev
