@@ -1,0 +1,14 @@
+- name:   Check if service account already exists
+  shell: >
+      gcloud beta iam service-accounts list
+      --project     {{ gke.project }}
+      | grep {{ service_account_name }}
+  register:      service_account_result
+  ignore_errors: yes
+
+- name:    Create service account for the "{{ server_name }}" instance
+  command: >
+      gcloud beta iam service-accounts create {{ service_account_name }}
+      --display-name {{ service_account_display_name }}
+      --project      {{ gke.project }}
+  when: service_account_result.stdout == ""

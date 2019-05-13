@@ -3,17 +3,21 @@
   vars_files:
     - ../var.yml
   vars:
-    server_name: concent-deployment-server
-    name_of_ip: "{{ server_name }}-ip"
+    server_name:          concent-deployment-server
+    service_account_name: concent-cloud-admin
+    name_of_ip:           "{{ server_name }}-ip"
   roles:
     - reserve_static_ip
+    - { role: create_service_account, service_account_display_name: ConcentCloudAdmin }
   tasks:
     - block:
         - name:    Create a GCP instance for {{ server_name }}
           command: >
               gcloud compute instances create {{ server_name }}
-              --description  "Vm instance that contain {{ server_name }}"
-              --machine-type f1-micro
-              --address      {{ name_of_ip }}
-              --project      {{ gke.project }}
-              --zone         {{ gke.zone }}
+              --description      "Vm instance that contain {{ server_name }}"
+              --machine-type     f1-micro
+              --address          {{ name_of_ip }}
+              --scopes           cloud-platform
+              --service-account  {{ service_account_name }}@{{ gke.project }}.iam.gserviceaccount.com
+              --project          {{ gke.project }}
+              --zone             {{ gke.zone }}
