@@ -3,19 +3,16 @@
   vars_files:
     - consts.yml
     - ../var.yml
+  vars:
+    server_name:          "{{ ethnode }}"
+    name_of_ip:           "{{ ethnode }}-ip"
+  pre_tasks:
+    - fail: msg="Please supply a value for ethnode variable. Valid values are{{ ":" }} 'ethnode-testnet' and 'ethnode-mainnet'"
+      when: ethnode not in ["ethnode-testnet", "ethnode-mainnet"]
+  roles:
+    - reserve_static_ip
   tasks:
     - block:
-        - fail: msg="Please supply a value for ethnode variable. Valid values are{{ ":" }} 'ethnode-testnet' and 'ethnode-mainnet'"
-          when: ethnode not in ["ethnode-testnet", "ethnode-mainnet"]
-
-        - name:   Check if static IP address for the "{{ ethnode }}" instance already exists
-          shell: >
-              gcloud compute addresses list
-              --project {{ gke.project }}
-              | grep {{ ethnode }}-ip
-          register:      ip_address_result
-          ignore_errors: yes
-
         - name:   Check if blockchain disk for the "{{ ethnode }}" instance already exists
           shell: >
               gcloud compute disks list
@@ -32,15 +29,6 @@
               | grep allow-ethnode-traffic
           register:      firewall_rules_result
           ignore_errors: yes
-
-        - name:    Reserve static IP address for the "{{ ethnode }}" instance
-          command: >
-              gcloud compute addresses create {{ ethnode }}-ip
-              --description "Static IP attached to {{ ethnode }} instance"
-              --project     {{ gke.project }}
-              --region      europe-west3
-          when: ip_address_result.stdout == ""
-
         - name:    Create blockchain disk for the "{{ ethnode }}" instance
           command: >
               gcloud compute disks create {{ ethnode }}-blockchain-disk
