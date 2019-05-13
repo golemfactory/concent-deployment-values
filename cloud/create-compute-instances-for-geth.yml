@@ -5,12 +5,14 @@
     - ../var.yml
   vars:
     server_name:          "{{ ethnode }}"
+    service_account_name: ethnode-service-account
     name_of_ip:           "{{ ethnode }}-ip"
   pre_tasks:
     - fail: msg="Please supply a value for ethnode variable. Valid values are{{ ":" }} 'ethnode-testnet' and 'ethnode-mainnet'"
       when: ethnode not in ["ethnode-testnet", "ethnode-mainnet"]
   roles:
     - reserve_static_ip
+    - { role: create_service_account, service_account_display_name: EthnodeServiceAccount }
   tasks:
     - block:
         - name:   Check if blockchain disk for the "{{ ethnode }}" instance already exists
@@ -42,12 +44,13 @@
         - name:    Machine running Ethereum client {{ "(" }}{{ ethnode }}{{ ")" }}
           command: >
               gcloud compute instances create {{ ethnode }}
-              --description  "Vm instance that contain ethereum client with block"
-              --disk         name={{ ethnode }}-blockchain-disk
-              --machine-type {{ ethnode_config[ethnode].machine_type }}
-              --address      {{ ethnode }}-ip
-              --project      {{ gke.project }}
-              --zone         {{ gke.zone }}
+              --description      "Vm instance that contain ethereum client with block"
+              --disk             name={{ ethnode }}-blockchain-disk
+              --machine-type     {{ ethnode_config[ethnode].machine_type }}
+              --address          {{ name_of_ip }}
+              --service-account  {{ service_account_name }}@{{ gke.project }}.iam.gserviceaccount.com
+              --project          {{ gke.project }}
+              --zone             {{ gke.zone }}
 
         - name: Add firewall rule to allow TCP traffic to the "{{ ethnode }}" instance
           command: >
