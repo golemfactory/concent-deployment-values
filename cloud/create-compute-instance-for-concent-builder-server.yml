@@ -1,0 +1,23 @@
+- hosts:
+    - localhost
+  vars_files:
+    - ../var-concent-dev.yml
+  vars:
+    server_name:          concent-builder
+    service_account_name: concent-deployer
+    name_of_ip:           "{{ server_name }}-ip"
+  roles:
+    - reserve_static_ip
+    - { role: create_service_account, service_account_display_name: ConcentDeployer }
+  tasks:
+    - block:
+        - name:    Create a GCP instance for {{ server_name }}
+          command: >
+              gcloud compute instances create {{ server_name }}
+              --description      "Vm instance that contain {{ server_name }}"
+              --machine-type     n1-standard-1
+              --address          {{ name_of_ip }}
+              --scopes           cloud-platform
+              --service-account  {{ service_account_name }}@{{ gke.project }}.iam.gserviceaccount.com
+              --project          {{ gke.project }}
+              --zone             {{ gke.zone }}
