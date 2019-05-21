@@ -155,6 +155,14 @@ ethnode_geth_mainnet_address: http://35.198.97.234:8545
     #gke:
     #  cluster:              concent-dev
 
+    # The variables below in this dictionary are optional.
+    # You can use them when variables are different between clusters in the same environment, such as the `dev` environment.
+    # Address of concent ethereum public_key to be attached to concent-api
+    #concent_ethereum_public_key: "cd53fdaa9e9f79b16b39b55d7936d2735071b6af8b7860f0bc40aa80cded80060f05cf189aec96f977a1dbc589b48b69bc529f8f5059274f0f541218c76ce136"
+
+    # Adress of concent GNTDeposit contract
+    #gnt_deposit_address: "0xcfB81A6EE3ae6aD4Ac59ddD21fB4589055c13DaD"
+
 # Amount of the gunicorn workers
 # This values can be overwrite by put interesting dictionary key in the specific cluster definition. Definition of cluster can be find in the concent_versions dictionary.
 amount_of_gunicorn_workers:
