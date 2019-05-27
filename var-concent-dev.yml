@@ -1,7 +1,5 @@
-control_database_name: concent_dev
 control_database_user: concent_dev_user
 
-storage_database_name: storage_concent_dev
 storage_database_user: storage_concent_dev_user
 
 admins:
@@ -78,5 +76,9 @@ concent_versions:
     rabbitmq_disk:           queue-storage
     external_geth_address:   "{{ ethnode_geth_rinkeby_address }}"
     geth_disk:               ethereum-storage
+    concent_ethereum_public_key: "a2bd13da780aa3cc44838333e5008f34ff14c46e045e1fd8b6ab1f25c4981a467463a23402168f78c1094a098dbd7d10ab2ef241606916b1a1190a7a2252b09e"
+    gnt_deposit_address:     '0x10ef3a07ea272E024cC0a66eCAe1Ba81eb3f5794'
+    control_database_name:   control_concent_new_db_dev
+    storage_database_name:   storage_concent_new_db_dev
     gke:
       cluster:              concent-dev
