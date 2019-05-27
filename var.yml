@@ -202,7 +202,7 @@ resource_limits:
         requests: 1Gi
         limits:   1.5Gi
       cpu:
-        requests: 600m
+        requests: 500m
         limits:   800m
 
 # Http server apps
@@ -254,29 +254,36 @@ resource_limits:
         requests: 100Mi
         limits:   500Mi
       cpu:
-        requests: 200m
+        requests: 50m
         limits:   500m
     nginx_storage:
       memory:
         requests: 100Mi
         limits:   500Mi
       cpu:
-        requests: 200m
+        requests: 50m
         limits:   500m
 
 # Geth and rabbitmq
   others:
-    geth:
-      memory:
-        requests: 2.5Gi
-        limits:   3Gi
-      cpu:
-        requests: 700m
-        limits:   1100m
     rabbitmq:
       memory:
         requests: 1.2Gi
         limits:   1.4Gi
       cpu:
-        requests: 500m
-        limits:   700m
+        requests: 250m
+        limits:   600m
+    reset_db:
+      memory:
+        requests: 300Mi
+        limits:   500Mi
+      cpu:
+        requests: 50m
+        limits:   500m
+    migrate_db:
+      memory:
+        requests: 300Mi
+        limits:   500Mi
+      cpu:
+        requests: 50m
+        limits:   500m
