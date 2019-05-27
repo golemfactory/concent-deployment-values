@@ -85,10 +85,6 @@ ethnode_geth_mainnet_address: http://35.198.97.234:8545
 # Name of ethereum network/blockchain that will be use by golem sci
 #ethereum_chain:              "rinkeby"
 
-# The number of application replicas
-#replicas_count:
-#  verifier: 2
-
 # This two variables decide which golem-messages versions are supported and
 # whether two versions or one are supported.
 # They are depend on the `load_balancer_turned_on` variable that enables routing.
