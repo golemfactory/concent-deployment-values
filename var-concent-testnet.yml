@@ -18,6 +18,11 @@ email:
   default_from_email: no-reply@testnet.concent.golem.network
   server_email:       no-reply@testnet.concent.golem.network
 
+cluster_resources:
+  machine_type: n1-standard-4
+  num_nodes:    1
+  disk_size:    100
+
 fast_timing: false
 
 signing_service_on_the_cluster:       false

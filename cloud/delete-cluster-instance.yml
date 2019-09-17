@@ -1,0 +1,27 @@
+- hosts:
+    - localhost
+  vars_files:
+    - ../var.yml
+    - ../var-{{ cluster }}.yml
+  pre_tasks:
+    - fail: msg="Please supply a value for concent_version variable that is defined as concent_versions dictionary keys in the var-{{ cluster }}.yml file. Valid values are {{ concent_versions.keys() | list }}"
+      when: concent_version not in {{ concent_versions.keys() | list }}
+
+    - name:    Delete the {{ cluster_name }} cluster
+      command: >
+          gcloud container clusters delete {{ cluster_name }}
+          --project                  {{ gke.project }}
+          --zone                     {{ gke.zone }}
+          --quiet
+      when: delete_cluster | bool
+  vars:
+    cluster_configuration: "{{ concent_versions[concent_version] }}"
+    cluster_name:          "{{ cluster_configuration.gke.cluster }}"
+    server_name:           "{{ cluster_name }}"
+  vars_prompt:
+    - name:    "delete_cluster"
+      prompt:  "Are you sure want to continue removing the cluster (yes/no)?"
+      private: no
+  roles:
+    - { role: delete_compute_disk, disk_name: "{{ cluster_configuration.nginx_storage_disk }}" }
+    - { role: delete_compute_disk, disk_name: "{{ cluster_configuration.rabbitmq_disk }}" }

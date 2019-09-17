@@ -1,0 +1,33 @@
+- hosts:
+    - localhost
+  vars_files:
+    - ../var.yml
+    - ../var-{{ cluster }}.yml
+  pre_tasks:
+    - fail: msg="Please supply a value for concent_version variable that is defined as concent_versions dictionary keys in the var-{{ cluster }}.yml file. Valid values are {{ concent_versions.keys() | list }}"
+      when: concent_version not in {{ concent_versions.keys() | list }}
+  vars:
+    cluster_configuration: "{{ concent_versions[concent_version] }}"
+    cluster_name:          "{{ cluster_configuration.gke.cluster }}"
+    server_name:           "{{ cluster_name }}"
+  roles:
+    - { role: reserve_static_ip, name_of_ip: "{{ cluster_name }}-ip" }
+    - { role: create_compute_disk, disk_name: "{{ cluster_configuration.nginx_storage_disk }}", resources_of_disk: "{{ disk_resources.nginx_storage_disk }}" }
+    - { role: create_compute_disk, disk_name: "{{ cluster_configuration.rabbitmq_disk }}", resources_of_disk: "{{ disk_resources.rabbitmq_disk }}" }
+  tasks:
+    - name:    Create the {{ cluster_name }} cluster
+      command: >
+          gcloud container clusters create {{ cluster_name }}
+          --project                  {{ gke.project }}
+          --zone                     {{ gke.zone }}
+          --machine-type             {{ cluster_configuration.cluster_resources.machine_type if cluster_configuration.cluster_resources is defined and cluster_configuration.cluster_resources is not none else cluster_resources.machine_type }}
+          --num-nodes                {{ cluster_configuration.cluster_resources.num_nodes if cluster_configuration.cluster_resources is defined and cluster_configuration.cluster_resources is not none else cluster_resources.num_nodes }}
+          --disk-size                {{ cluster_configuration.cluster_resources.disk_size if cluster_configuration.cluster_resources is defined and cluster_configuration.cluster_resources is not none else cluster_resources.disk_size }}
+          --image-type               COS
+          --network                  default
+          --subnetwork               default
+          --maintenance-window       05:00
+          --no-enable-basic-auth
+          --enable-cloud-logging
+          --enable-cloud-monitoring
+          --scopes                   {{ cluster_scopes }}

@@ -1,0 +1,14 @@
+- name:   Check if {{ disk_name }} for the "{{ server_name }}" instance exists
+  command: >
+    gcloud compute disks list
+    --project   {{ gke.project }}
+    | grep {{ disk_name }}
+  register:      disk_result
+  ignore_errors: yes
+
+- name:    Delete "{{ disk_name }}" from the "{{ server_name }}" instance
+  command: >
+      gcloud compute disks delete {{ disk_name }}
+      --project     {{ gke.project }}
+      --zone        {{ gke.zone }}
+  when: disk_result.stdout != ""

@@ -1,0 +1,17 @@
+- name:   Check if {{ disk_name }} for the "{{ server_name }}" instance already exists
+  command: >
+    gcloud compute disks list
+    --project   {{ gke.project }}
+    | grep {{ disk_name }}
+  register:      disk_result
+  ignore_errors: yes
+
+- name:    Create "{{ disk_name }}" for the "{{ server_name }}" instance
+  command: >
+      gcloud compute disks create {{ disk_name }}
+      --type        {{ resources_of_disk.type }}
+      --size        {{ resources_of_disk.size }}
+      --description "Persistent disk attached to the {{ server_name }} instance"
+      --project     {{ gke.project }}
+      --zone        {{ gke.zone }}
+  when: disk_result.stdout == ""
