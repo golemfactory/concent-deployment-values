@@ -32,6 +32,13 @@ gke:
   region:               europe-west3
   zone:                 europe-west3-a
 
+# The available cluster resources
+# This values can be overwrite by put interesting dictionary key in the specific cluster definition. Definition of cluster can be find in the concent_versions dictionary.
+cluster_resources:
+  machine_type: custom-2-7680
+  num_nodes:    1
+  disk_size:    100
+
 # Maximum size of individual files that can be uploaded to nginx-storage
 #max_upload_size:    300m
 
@@ -287,3 +294,21 @@ resource_limits:
       cpu:
         requests: 50m
         limits:   500m
+
+# The available disk resources
+disk_resources:
+  nginx_storage_disk:
+    type: pd-standard
+    size: 50GB
+  rabbitmq_disk:
+    type: pd-standard
+    size: 1GB
+
+# List of cluster scopes(privileges)
+cluster_scopes: "https://www.googleapis.com/auth/compute,\
+                 https://www.googleapis.com/auth/devstorage.read_only,\
+                 https://www.googleapis.com/auth/logging.write,\
+                 https://www.googleapis.com/auth/monitoring,\
+                 https://www.googleapis.com/auth/servicecontrol,\
+                 https://www.googleapis.com/auth/service.management.readonly,\
+                 https://www.googleapis.com/auth/trace.append"
