@@ -1,0 +1,75 @@
+control_database_name: concent_mainnet
+control_database_user: concent_mainnet_user
+
+storage_database_name: storage_concent_mainnet
+storage_database_user: storage_concent_mainnet_user
+
+admins:
+  - name: cameel
+    mail: kamil.sliwak@codepoets.it
+  - name: bartek
+    mail: bartosz.betka@codepoets.it
+
+email:
+  host:               smtp.sendgrid.net
+  port:               2525
+  user:               apikey
+  use_tls:            true
+  default_from_email: no-reply@devel.concent.golem.network
+  server_email:       no-reply@devel.concent.golem.network
+
+fast_timing: false
+
+signing_service_on_the_cluster:       false
+allow_signing_service_authentication: true
+
+nginx_proxy_allow_http:   false
+nginx_storage_allow_http: true
+max_upload_size:    1000m
+
+concent_ethereum_public_key: "0bb2034f59cb30aa85ac0020238a8b98d6d37965713756cfa2a825da05ec486edf65c02f97fd13f49a81fd4ff68119aad9b7395d16ad2afa9a88626c56cc729c"
+gnt_deposit_address:         "0x98d3ca6528A2532Ffd9BDef50F92189568932570"
+ethereum_chain:              "mainnet"
+
+# This two variables should contain only the minor and major version of golem-messages protocol.
+# They also contain only one dot `x.xx`. The patch version is checked by regex in nginx-router.
+current_golem_messages_version:  3.14
+previous_golem_messages_version:
+
+previous_concent_version:
+
+
+concent_versions:
+  # golem-message 3.14
+  v0.14.0:
+    load_balancer_turned_on:         true
+    external_ip:                     35.246.245.241
+    cluster_address:                 main.concent.golem.network
+    storage_cluster_address:         main.concent.golem.network
+    allowed_hosts:
+       - 35.246.245.241
+       - main.concent.golem.network
+       - internal.local
+    versions:
+      concent-deployment:        mainnet
+    # When the version of a golem message changes(here is new version), remember to replace these variables
+    # with variables from the older golem message version.
+    # This behaviour is needed because we use cluster and disks from oldest golem-messages version
+    nginx_storage_disk:      concent-mainnet-storage
+    rabbitmq_disk:           concent-mainnet-queue-storage
+    external_geth_address:   "{{ ethnode_geth_mainnet_address }}"
+    gke:
+      cluster:              concent-mainnet
+
+cluster_resources:
+  machine_type: custom-4-10240
+  num_nodes:    1
+  disk_size:    100
+
+disk_resources:
+  nginx_storage_disk:
+    type: pd-standard
+    size: 500GB
+  rabbitmq_disk:
+    type: pd-standard
+    size: 1GB
