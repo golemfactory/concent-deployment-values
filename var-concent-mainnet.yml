@@ -41,7 +41,7 @@ previous_concent_version:
 
 concent_versions:
   # golem-message 3.14
-  v0.14.0:
+  v0.14.2:
     load_balancer_turned_on:         true
     external_ip:                     35.246.245.241
     cluster_address:                 main.concent.golem.network
@@ -60,6 +60,15 @@ concent_versions:
     external_geth_address:   "{{ ethnode_geth_mainnet_address }}"
     gke:
       cluster:              concent-mainnet
+    resource_limits:
+      others:
+        rabbitmq:
+          memory:
+            requests: 1.2Gi
+            limits:   1.4Gi
+          cpu:
+            requests: 500m
+            limits:   800m
 
 cluster_resources:
   machine_type: custom-4-10240
@@ -73,3 +82,4 @@ disk_resources:
   rabbitmq_disk:
     type: pd-standard
     size: 1GB
+

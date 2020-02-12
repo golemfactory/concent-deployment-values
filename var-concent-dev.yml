@@ -46,21 +46,21 @@ nginx_proxy_allow_http:   true
 nginx_storage_allow_http: true
 max_upload_size:         300m
 
-concent_ethereum_public_key: "cd53fdaa9e9f79b16b39b55d7936d2735071b6af8b7860f0bc40aa80cded80060f05cf189aec96f977a1dbc589b48b69bc529f8f5059274f0f541218c76ce136"
-gnt_deposit_address:         "0xcfB81A6EE3ae6aD4Ac59ddD21fB4589055c13DaD"
+concent_ethereum_public_key: "a2bd13da780aa3cc44838333e5008f34ff14c46e045e1fd8b6ab1f25c4981a467463a23402168f78c1094a098dbd7d10ab2ef241606916b1a1190a7a2252b09e"
+gnt_deposit_address:         '0x10ef3a07ea272E024cC0a66eCAe1Ba81eb3f5794'
 ethereum_chain:              "rinkeby"
 
 # This two variables should contain only the minor and major version of golem-messages protocol.
 # They also contain only one dot `x.xx`. The patch version is checked by regex in nginx-router.
-current_golem_messages_version:  2.15
+current_golem_messages_version:  3.14
 previous_golem_messages_version:
 
 previous_concent_version:
 
 
 concent_versions:
-  # golem-message 2.15.2
-  v0.10.2-9-gccfae9af:
+  # golem-message 3.14.0
+  v0.14.2:
     load_balancer_turned_on:         true
     external_ip:                     35.198.90.123
     cluster_address:                 devel.concent.golem.network
