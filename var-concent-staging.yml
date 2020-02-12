@@ -1,7 +1,5 @@
-control_database_name: concent_staging
 control_database_user: concent_staging_user
 
-storage_database_name: storage_concent_staging
 storage_database_user: storage_concent_staging_user
 
 admins:
@@ -20,7 +18,7 @@ email:
 
 fast_timing: false
 
-signing_service_on_the_cluster:       false
+signing_service_on_the_cluster:       true
 allow_signing_service_authentication: true
 
 nginx_proxy_allow_http:   false
@@ -29,20 +27,18 @@ max_upload_size:    300m
 
 concent_public_key: Yps+87PvV5KT/klX0QrwapEJ35WEgWI2Q+jg21wuUAA7clpNr1FJ90eV4+MuaBnxD/qM7RI6iIpLAEM5IPB+UA==
 
-concent_ethereum_public_key: "b01e41603b2e45288dab70d3918f0181cd7a0b95d92cdadde27c3fdf59692bcbf08e67c3e12ebb9226ba2b61bb66d2d49f482ffe3b7d6e81b23becc30221c45f"
-gnt_deposit_address:         "0xA172A4B929Ae9589E3228F723CB99508b8c0709a"
 ethereum_chain:              "rinkeby"
 
 # This two variables should contain only the minor and major version of golem-messages protocol.
 # They also contain only one dot `x.xx`. The patch version is checked by regex in nginx-router.
-current_golem_messages_version:  2.15
-previous_golem_messages_version:
+current_golem_messages_version:  3.14
+previous_golem_messages_version: 3.11
 
-previous_concent_version:
+previous_concent_version: v0.11.0-93-g5e28184b
 
 concent_versions:
-  # golem-message 2.15.2
-  v0.11.0:
+  # golem-message 3.14.0
+  v0.14.2-4-g4d0bff7a:
     load_balancer_turned_on:         true
     external_ip:                     35.198.165.137
     cluster_address:                 staging.concent.golem.network
@@ -60,5 +56,31 @@ concent_versions:
     rabbitmq_disk:         concent-staging-queue-storage
     external_geth_address: "{{ ethnode_geth_rinkeby_address }}"
     geth_disk:             concent-staging-ethereum-storage
+    concent_ethereum_public_key: "e7f3ff4653b580efd24ab91957d87111ed0f7d6361a596b5cb323f9dbdd75fba940f898dfdb9d9f812311459cfd9bbde9ff4cf57e7429fa32e065b87d34b5d14"
+    gnt_deposit_address:         "0x884443710CDe8Bb56D10E81059513fb1c4Bf32A3"
+    control_database_name: control_concent_new_db_staging
+    storage_database_name: storage_concent_new_db_staging
     gke:
       cluster:              concent-staging
+
+  # golem-message 3.11.0
+  v0.11.0-93-g5e28184b:
+    external_ip:                     35.246.185.253
+    cluster_address:                 35.246.185.253
+    storage_cluster_address:         staging.concent.golem.network
+    allowed_hosts:
+       - 35.246.185.253
+       - staging.concent.golem.network
+       - internal.local
+    versions:
+      concent-deployment:      staging-2
+    nginx_storage_disk:    concent-staging-storage-2
+    rabbitmq_disk:         concent-staging-queue-storage-2
+    external_geth_address: "{{ ethnode_geth_rinkeby_address }}"
+    geth_disk:             concent-staging-ethereum-storage-2
+    concent_ethereum_public_key: "e7f3ff4653b580efd24ab91957d87111ed0f7d6361a596b5cb323f9dbdd75fba940f898dfdb9d9f812311459cfd9bbde9ff4cf57e7429fa32e065b87d34b5d14"
+    gnt_deposit_address:         "0x863f24E4E4217692Def7EFc0824A42c7D0585B26"
+    control_database_name: concent_staging
+    storage_database_name: storage_concent_staging
+    gke:
+      cluster:              concent-staging-2
