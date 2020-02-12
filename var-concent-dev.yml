@@ -61,7 +61,7 @@ previous_concent_version:
 concent_versions:
   # golem-message 3.14.0
   v0.14.2:
-    load_balancer_turned_on:         true
+    load_balancer_turned_on:         false
     external_ip:                     35.198.90.123
     cluster_address:                 devel.concent.golem.network
     storage_cluster_address:         devel.concent.golem.network
@@ -70,7 +70,7 @@ concent_versions:
        - devel.concent.golem.network
        - internal.local
     versions:
-      concent-deployment:        dev
+      concent-deployment:        ci
     # When the version of a golem message changes(here is new version), remember to replace these variables
     # with variables from the older golem message version.
     # This behaviour is needed because we use cluster and disks from oldest golem-messages version
