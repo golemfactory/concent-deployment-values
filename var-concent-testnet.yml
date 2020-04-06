@@ -38,14 +38,14 @@ ethereum_chain:              "rinkeby"
 
 # This two variables should contain only the minor and major version of golem-messages protocol.
 # They also contain only one dot `x.xx`. The patch version is checked by regex in nginx-router.
-current_golem_messages_version:  3.14
-previous_golem_messages_version: 3.11
+current_golem_messages_version:  3.15
+previous_golem_messages_version: 3.14
 
-previous_concent_version: v0.13.0
+previous_concent_version: v0.14.2
 
 concent_versions:
-  # golem-message 3.14.0
-  v0.14.2:
+  # golem-message 3.15.0
+  v0.15.0:
     load_balancer_turned_on:         true
     external_ip:                     35.198.72.129
     cluster_address:                 test.concent.golem.network
@@ -65,8 +65,8 @@ concent_versions:
     gke:
       cluster:              concent-testnet
 
-  # golem-message 3.11.0
-  v0.13.0:
+  # golem-message 3.14.0
+  v0.14.2:
     external_ip:                     35.234.119.112
     cluster_address:                 35.234.119.112
     storage_cluster_address:         test.concent.golem.network
